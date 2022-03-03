@@ -77,5 +77,5 @@ let password = ""
 for (let index = 0; index < passwordLength; index++) {
   
   
-}
+};
 // then show the generated password in the textarea 
