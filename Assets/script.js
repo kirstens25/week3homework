@@ -15,7 +15,7 @@ function setPasswordLengthSpan(){
 // the span password length should be updated
 
 // get the value of input
-const PasswordLength = inputPasswordLength.value
+const PasswordLength = inputPasswordLength.value;
 console.log(PasswordLength);
 // change the text content of span
 spanPasswordLength.textContent = PasswordLength;
@@ -31,7 +31,7 @@ setPasswordLengthSpan();
 
 
 const lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
-const uppsercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const uppercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbersSet = "1234567890";
 const symbolsSet = "!@#$%^&*()";
 
@@ -41,8 +41,8 @@ generateBtn.addEventListener('click', function(event){
   console.log(event);
 })
 // the page will ask me my password length
-const passwordlength = Number(inputPasswordLength.value);
-console.log(passwordlength);
+const passwordLength = Number(inputPasswordLength.value);
+console.log(passwordLength);
 
 
 // the page will ask me if I want to use  (done in html)
@@ -50,13 +50,10 @@ let charset = "";
 
 // lowercase
 const wantsLowercase = inputLowercase.checked;
-
 // uppercase
 const wantsUppercase = inputUppercase.checked;
-
 // symbols
 const wantsSymbols = inputSymbols.checked;
-
 // numbers 
 const wantsNumbers = inputNumbers.checked;
 
@@ -68,7 +65,7 @@ if (wantsLowercase){
   charset = charset + lowercaseSet;
 }
 if (wantsUppercase){
-  charset = charset + uppsercaseSet;
+  charset = charset + uppercaseSet;
 }
 if (wantsNumbers){
   charset = charset + numbersSet;
@@ -77,11 +74,6 @@ if (wantsSymbols){
   charset = charset + symbolsSet;
 }
 
-if(!wantsLowercase && !wantsUppercase && !wantsSymbols && !wantsNumbers) {
-// error message
-divError.textContent = "MAKE A SELECTION PLEASE";
-
-return}
 
 // then the app should generate the password based on the options
 
@@ -89,7 +81,7 @@ let password = "";
 console.log(charset);
 
 // loop for passwordLength 
-for (let index = 0; index < passwordlength; index++) {
+for (let index = 0; index < passwordLength; index++) {
 
 // each time it actions, a random character will be generated
 // add random character
@@ -98,5 +90,5 @@ const randomChar = charset[randomIndex];
 password = password + randomChar; 
 }
 // then show the generated password in the textarea
-
-textareaPassword.textContent = password;
+{
+textareaPassword.textContent = password;}
