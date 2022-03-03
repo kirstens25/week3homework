@@ -38,57 +38,53 @@ const symbolsSet = "!@#$%^&*()";
 
 // When I click on the generate button
 generateBtn.addEventListener('click', function(event){
-  console.log(event);
+  let charset = "";
+
+  // lowercase
+  const wantsLowercase = inputLowercase.checked;
+  // uppercase
+  const wantsUppercase = inputUppercase.checked;
+  // symbols
+  const wantsSymbols = inputSymbols.checked;
+  // numbers 
+  const wantsNumbers = inputNumbers.checked;
+  
+  // in my password
+  
+  
+  // once I have selected all the options
+  if (wantsLowercase){
+    charset = charset + lowercaseSet;
+  }
+  if (wantsUppercase){
+    charset = charset + uppercaseSet;
+  }
+  if (wantsNumbers){
+    charset = charset + numbersSet;
+  }
+  if (wantsSymbols){
+    charset = charset + symbolsSet;
+  }
+  
+  
+  // then the app should generate the password based on the options
+  
+  let password = "";
+  console.log(charset);
+  
+  // loop for passwordLength 
+  for (let index = 0; index < passwordLength; index++) {
+  
+  // each time it actions, a random character will be generated
+  // add random character
+  const randomIndex = Math.floor(Math.random() * charset.length);
+  const randomChar = charset[randomIndex];
+  password = password + randomChar; 
+  }
+  // then show the generated password in the textarea
+  {
+  textareaPassword.textContent = password;}
 })
 // the page will ask me my password length
 const passwordLength = Number(inputPasswordLength.value);
 console.log(passwordLength);
-
-
-// the page will ask me if I want to use  (done in html)
-let charset = "";
-
-// lowercase
-const wantsLowercase = inputLowercase.checked;
-// uppercase
-const wantsUppercase = inputUppercase.checked;
-// symbols
-const wantsSymbols = inputSymbols.checked;
-// numbers 
-const wantsNumbers = inputNumbers.checked;
-
-// in my password
-
-
-// once I have selected all the options
-if (wantsLowercase){
-  charset = charset + lowercaseSet;
-}
-if (wantsUppercase){
-  charset = charset + uppercaseSet;
-}
-if (wantsNumbers){
-  charset = charset + numbersSet;
-}
-if (wantsSymbols){
-  charset = charset + symbolsSet;
-}
-
-
-// then the app should generate the password based on the options
-
-let password = "";
-console.log(charset);
-
-// loop for passwordLength 
-for (let index = 0; index < passwordLength; index++) {
-
-// each time it actions, a random character will be generated
-// add random character
-const randomIndex = Math.floor(Math.random() * charset.length);
-const randomChar = charset[randomIndex];
-password = password + randomChar; 
-}
-// then show the generated password in the textarea
-{
-textareaPassword.textContent = password;}
