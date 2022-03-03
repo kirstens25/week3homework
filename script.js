@@ -43,14 +43,18 @@ console.log(PasswordLength);
 
 // lowercase
 const wantsLowercase = inputLowercase.checked;
-console.log(wantsLowercase)
+
 // uppercase
+const wantsUppercase = inputUppercase.checked;
 
 // symbols
+const wantsSymbols = inputSymbols.checked;
 
 // numbers 
+const wantsNumbers = inputNumbers.checked;
 
 // in my password
+console.log(wantsLowercase, wantsUppercase, wantsSymbols, wantsNumbers)
 
 
 
