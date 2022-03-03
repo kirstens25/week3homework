@@ -8,10 +8,12 @@ const inputUppercase = document.getElementById("input-uppercase");
 const inputNumbers = document.getElementById("input-numbers");
 const inputSymbols = document.getElementById("input-symbols");
 
-
-
-
 setPasswordLengthSpan();
+
+const lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
+const uppsercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const numberSet = "1234567890";
+const symbolsSet = "!@#$%^&*()";
 
 function setPasswordLengthSpan(){
 // the span password length should be updated
@@ -39,6 +41,8 @@ generateBtn.addEventListener('click', function(event){
 const passwordlength = Number(inputPasswordLength.value);
 console.log(PasswordLength);
 
+let charset = "";
+
 // the page will ask me if I want to use  (done in html)
 
 // lowercase
@@ -54,12 +58,24 @@ const wantsSymbols = inputSymbols.checked;
 const wantsNumbers = inputNumbers.checked;
 
 // in my password
-console.log(wantsLowercase, wantsUppercase, wantsSymbols, wantsNumbers)
-
 
 
 // once I have selected all the options
+if(wantsLowercase){
+  charset = charset + lowercaseSet;
+}
 
 // then the app should generate the password based on the options
 
+// loop for passwordLength 
+for (let index = 0; index < passwordLength; index++) {
+
+// each time it actions, a random character will be generated
+// add random character
+let password = ""
+
+for (let index = 0; index < passwordLength; index++) {
+  
+  
+}
 // then show the generated password in the textarea 
