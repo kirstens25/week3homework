@@ -1,5 +1,8 @@
 # 03 JavaScript: Password Generator
 
+LINK TO DEPLOYED APPLICATION:
+https://kirstens25.github.io/week3homework/
+
 # Description:
 Web app that allows a random password to be generated, consisting of the user's choice of lowercase, uppercase, symbols and numbers.
 
