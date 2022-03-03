@@ -7,13 +7,9 @@ const inputLowercase = document.getElementById("input-lowercase");
 const inputUppercase = document.getElementById("input-uppercase");
 const inputNumbers = document.getElementById("input-numbers");
 const inputSymbols = document.getElementById("input-symbols");
+const textareaPassword = document.getElementById("password");
+const divError = document.getElementById("div-error");
 
-setPasswordLengthSpan();
-
-const lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
-const uppsercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const numberSet = "1234567890";
-const symbolsSet = "!@#$%^&*()";
 
 function setPasswordLengthSpan(){
 // the span password length should be updated
@@ -33,17 +29,24 @@ inputPasswordLength.addEventListener('input', function(event){
 setPasswordLengthSpan();
 });
 
+
+const lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
+const uppsercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const numbersSet = "1234567890";
+const symbolsSet = "!@#$%^&*()";
+
+
 // When I click on the generate button
 generateBtn.addEventListener('click', function(event){
   console.log(event);
 })
 // the page will ask me my password length
 const passwordlength = Number(inputPasswordLength.value);
-console.log(PasswordLength);
+console.log(passwordlength);
 
-let charset = "";
 
 // the page will ask me if I want to use  (done in html)
+let charset = "";
 
 // lowercase
 const wantsLowercase = inputLowercase.checked;
@@ -61,21 +64,39 @@ const wantsNumbers = inputNumbers.checked;
 
 
 // once I have selected all the options
-if(wantsLowercase){
+if (wantsLowercase){
   charset = charset + lowercaseSet;
 }
+if (wantsUppercase){
+  charset = charset + uppsercaseSet;
+}
+if (wantsNumbers){
+  charset = charset + numbersSet;
+}
+if (wantsSymbols){
+  charset = charset + symbolsSet;
+}
+
+if(!wantsLowercase && !wantsUppercase && !wantsSymbols && !wantsNumbers) {
+// error message
+divError.textContent = "MAKE A SELECTION PLEASE";
+
+return}
 
 // then the app should generate the password based on the options
 
+let password = "";
+console.log(charset);
+
 // loop for passwordLength 
-for (let index = 0; index < passwordLength; index++) {
+for (let index = 0; index < passwordlength; index++) {
 
 // each time it actions, a random character will be generated
 // add random character
-let password = ""
+const randomIndex = Math.floor(Math.random() * charset.length);
+const randomChar = charset[randomIndex];
+password = password + randomChar; 
+}
+// then show the generated password in the textarea
 
-for (let index = 0; index < passwordLength; index++) {
-  
-  
-};
-// then show the generated password in the textarea 
+textareaPassword.textContent = password;
