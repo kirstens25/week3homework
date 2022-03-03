@@ -51,7 +51,6 @@ generateBtn.addEventListener('click', function(event){
   
   // in my password
   
-  
   // once I have selected all the options
   if (wantsLowercase){
     charset = charset + lowercaseSet;
