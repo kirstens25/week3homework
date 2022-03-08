@@ -1,4 +1,4 @@
-// Assignment Code
+// assignment code written here
 const generateBtn = document.querySelector("#generate");
 const inputPasswordLength =document.getElementById("input-length");
 const spanPasswordLength = document.getElementById("span-length-display");
